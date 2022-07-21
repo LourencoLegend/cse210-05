@@ -1,4 +1,5 @@
 from game.scripting.action import Action
+import constants
 
 
 class MoveActorsAction(Action):
@@ -18,3 +19,8 @@ class MoveActorsAction(Action):
         actors = cast.get_all_actors()
         for actor in actors:
             actor.move_next()
+            
+        snake_one = cast.get_first_actor("snake_one")
+        snake_two = cast.get_first_actor("snake_two")
+        snake_one.grow_tail(constants.TAIL_GROWTH)
+        snake_two.grow_tail(constants.TAIL_GROWTH)
